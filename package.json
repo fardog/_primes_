@@ -1,0 +1,21 @@
+{
+  "name": "_primes_",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Nathan Wittstock <code@fardogllc.com>",
+  "description": "Lets make some numbers.",
+  "scripts": {
+    "start": "coffee app.coffee"
+  },
+  "dependencies": {
+    "coffee-script": "1.6.x",
+		"nconf": "0.6.x",
+		"fibers": "1.0.x",
+		"twitter": "0.2.x"
+  },
+  "devDependencies": {
+		"grunt": "*",
+		"nesh": "1.3.x"
+  }
+}
+
