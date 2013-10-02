@@ -56,6 +56,7 @@ timeout = 0
 
 scheduleNext = (data) ->
   date = new Date(data.created_at)
+  date.addHours(1)
 
   if Date.now() > date
     console.log "would post already"
