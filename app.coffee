@@ -38,7 +38,8 @@ twitter = new Twitter data=
   access_token_secret: config.get 'access_token_secret'
 
 minutes_between_posts = config.get 'minutes_between_posts'
-
+if minutes_between_posts == 'undefined' or minutes_between_posts < 10
+  die "Minutes between posts was not set appropriately."
 
 # addHours: Extend the date object to contain a function to add minutes
 #
@@ -103,19 +104,6 @@ last_post = null  # The last time we posted, in milliseconds
 #
 # Returns nothing
 scheduleNext = (data) ->
-  # Get the date of the last post from the twitter data
-  date = null
-  if typeof data.created_at != 'undefined'
-    date = new Date data.created_at
-    date.addMinutes(minutes_between_posts)
-  else
-    die "No data from Twitter was present."
-
-  # Check if it's been enough time since last post, or calculate when to post
-  if !(Date.now() > date)
-    timeout = date - Date.now()
-    console.log "Info: Will post in " + timeout + " milliseconds."
-
   # Get the last prime number posted
   if data? and data.text?
     startPrime = parseInt data.text
@@ -131,6 +119,19 @@ scheduleNext = (data) ->
   # Now we're ready to start calculating and posting.
   seq = Primes(startPrime + 1)
   prime_number = seq()
+
+  # Get the date of the last post from the twitter data
+  date = null
+  if typeof data.created_at != 'undefined'
+    date = new Date data.created_at
+    date.addMinutes(minutes_between_posts)
+  else
+    die "Couldn not get the last posting date from Twitter."
+
+  # Check if it's been enough time since last post, or calculate when to post
+  if !(Date.now() > date)
+    timeout = date - Date.now()
+    console.log "Info: Will post in " + timeout + " milliseconds."
 
   # Start the timer before posting
   setTimeout (=>
