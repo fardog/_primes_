@@ -23,6 +23,16 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ###
 
 
+# die: Dump a message to the console, and quit with an error
+#
+# message - The message to output
+#
+# Returns nothing
+die = (message) ->
+  console.log "Error: " + message
+  process.exit(1)
+
+
 Fiber = require 'fibers'
 Twitter = require 'twitter'
 config = require 'nconf'
@@ -41,6 +51,7 @@ minutes_between_posts = config.get 'minutes_between_posts'
 if typeof minutes_between_posts == 'undefined' or minutes_between_posts < 10
   die "Minutes between posts was not set appropriately."
 
+
 # addHours: Extend the date object to contain a function to add minutes
 #
 # m - Number of minutes to be added
@@ -48,16 +59,6 @@ if typeof minutes_between_posts == 'undefined' or minutes_between_posts < 10
 # Returns the date object with the minutes added
 Date.prototype.addMinutes = (m) ->
   @setMinutes (@getMinutes()+m)
-
-
-# die: Dump a message to the console, and quit with an error
-#
-# message - The message to output
-#
-# Returns nothing
-die = (message) ->
-  console.log "Error: " + message
-  process.exit(1)
 
 
 # isPrime: A function for determining if a number is prime
