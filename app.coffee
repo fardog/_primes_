@@ -38,7 +38,7 @@ twitter = new Twitter data=
   access_token_secret: config.get 'access_token_secret'
 
 minutes_between_posts = config.get 'minutes_between_posts'
-if minutes_between_posts == 'undefined' or minutes_between_posts < 10
+if typeof minutes_between_posts == 'undefined' or minutes_between_posts < 10
   die "Minutes between posts was not set appropriately."
 
 # addHours: Extend the date object to contain a function to add minutes
