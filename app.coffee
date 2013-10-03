@@ -30,16 +30,33 @@ config = require 'nconf'
 # Load configuration
 config.argv().env().file('./config.json')
 
-# Start up our Twitter reader
+# Start up our Twitter reader/writer
 twitter = new Twitter data=
   consumer_key: config.get 'consumer_key'
   consumer_secret: config.get 'consumer_secret'
   access_token_key: config.get 'access_token_key'
   access_token_secret: config.get 'access_token_secret'
 
+minutes_between_posts = config.get 'minutes_between_posts'
 
-Date.prototype.addHours = (h) ->
-    @setHours (@getHours()+h)
+
+# addHours: Extend the date object to contain a function to add minutes
+#
+# m - Number of minutes to be added
+#
+# Returns the date object with the minutes added
+Date.prototype.addMinutes = (m) ->
+  @setMinutes (@getMinutes()+m)
+
+
+# die: Dump a message to the console, and quit with an error
+#
+# message - The message to output
+#
+# Returns nothing
+die = (message) ->
+  console.log "Error: " + message
+  process.exit(1)
 
 
 # isPrime: A function for determining if a number is prime
@@ -58,58 +75,78 @@ isPrime = (n) ->
 
 # Primes: Generator function that yelds one prime per iteration
 #
+# n - Number to start generating primes from
+#
 # Returns the fiber to be used as the generator
 Primes = (n) ->
   fiber = Fiber ->
     while true
       if isPrime n
+        console.log "Info: Prime generated was " + n
         Fiber.yield n
       n++
 
   return fiber.run.bind fiber
 
 
-
-# Number of Primes we want to get
-nPrimes = 3
-
-# Number that we're starting from
-startPrime = null
-seq = null
-timeout = 0
+# Variables we'll use to manage state
+startPrime = null  # The prime number we're starting from
+seq = null  # The sequence generator function
+timeout = 0  # The amount of time we're waiting before posting
+last_post = null  # The last time we posted, in milliseconds
 
 
+# scheduleNext: Uses data from twitter to determine the next posting time, and
+# handles any error checking to make sure we don't over-post.
+#
+# data - JSON data returned from Twitter
+#
+# Returns nothing
 scheduleNext = (data) ->
-  date = new Date(data.created_at)
-  date.addHours(1)
-
-  if Date.now() > date
-    console.log "would post already"
+  # Get the date of the last post from the twitter data
+  date = null
+  if typeof data.created_at != 'undefined'
+    date = new Date data.created_at
+    date.addMinutes(minutes_between_posts)
   else
-    timeout = date - Date.now()
-    console.log "would post later " + timeout
+    die "No data from Twitter was present."
 
+  # Check if it's been enough time since last post, or calculate when to post
+  if !(Date.now() > date)
+    timeout = date - Date.now()
+    console.log "Info: Will post in " + timeout + " milliseconds."
+
+  # Get the last prime number posted
   if data? and data.text?
     startPrime = parseInt data.text
-    console.log "startPrime is " + startPrime
+    console.log "Info: Starting Prime is " + startPrime
     
+    # If it's not a prime that was posted last, something is wrong
     if !isPrime(startPrime)
-      console.log "Error: We retrieved a non-prime number from twitter!"
-      process.exit(1)
+      die "We retrieved a non-prime number from Twitter!"
 
   else
-    console.log "Error: Could not retrieve starting number from Twitter!"
-    process.exit(1)
+    die "Could not retrieve starting number from Twitter!"
 
   # Now we're ready to start calculating and posting.
   seq = Primes(startPrime + 1)
+  prime_number = seq()
 
+  # Start the timer before posting
   setTimeout (=>
-    prime_number = seq()
-    twitter.updateStatus prime_number, (data) ->
-      scheduleNext(data)
+    # Fail-safe to ensure we haven't posted too often accidentally
+    failsafe_duration = 1000*60*minutes_between_posts/2
+    if last_post == null or (last_post + failsafe_duration) < Date.now()
+      last_post = Date.now()
+      twitter.updateStatus prime_number, (data) ->
+        console.log "Info: Successfully posted to Twitter."
+        scheduleNext data
+    else
+      die "Tried to post too often."
   ), timeout
+
 
 # Get our starting number from twitter, so we can see what was last posted
 twitter.getUserTimeline null, (data) ->
-  scheduleNext(data[0])
+  scheduleNext data[0]
+
