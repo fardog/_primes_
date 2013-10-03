@@ -7,8 +7,8 @@ works as follows:
 
 1. Start up, fetch the most recently calculated prime from the Twitter feed.
 2. Calculate the next prime.
-3. Post it.
-4. Wait an hour and do it again.
+3. Post if an hour has passed since the last posting. Wait if not.
+4. Steps 1–3 forever.
 
 With the speed that the average machine can calculate prime numbers, it should 
 be several years before processor time becomes an issue.
