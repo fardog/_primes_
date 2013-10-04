@@ -5,13 +5,14 @@ _primes_ is a prime number calculator that uses twitter as it's storage backend;
 you can follow [@_primes_](https://twitter.com/_primes_) to see the magic. It 
 works as follows:
 
-1. Start up, fetch the most recently calculated prime from the Twitter feed.
-2. Calculate the next prime.
-3. Post if an hour has passed since the last posting. Wait if not.
-4. Steps 1–3 forever.
+1. Start up
+2. Fetch the most recently calculated prime from the Twitter feed.
+3. Calculate the next prime.
+4. Post if an hour has passed since the last posting. Wait if not.
+5. Steps 2–4 forever.
 
 With the speed that the average machine can calculate prime numbers, it should 
-be several years before processor time becomes an issue.
+be several decades before processor time becomes an issue.
 
 
 The MIT License (MIT)
