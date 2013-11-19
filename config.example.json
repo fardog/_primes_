@@ -1,7 +1,0 @@
-{
-	"consumer_key": "your_twitter_consumer_key",
-  "consumer_secret": "your_twitter_consumer_secret",
-  "access_token_key": "your_access_token_key",
-  "access_token_secret": "your_access_token_secret",
-	"minutes_between_posts": 60
-}
