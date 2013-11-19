@@ -1,18 +1,11 @@
-_primes_
-========
+Every Prime
+===========
 
-_primes_ is a prime number calculator that uses twitter as it's storage backend;
-you can follow [@_primes_](https://twitter.com/_primes_) to see the magic. It 
-works as follows:
+**Every Prime** is a website containing every single possible prime number. 
+Hyperbole? Sort of! It's actually generating the numbers in your browser. Big 
+surprise.
 
-1. Start up
-2. Fetch the most recently calculated prime from the Twitter feed.
-3. Calculate the next prime.
-4. Post if an hour has passed since the last posting. Wait if not.
-5. Steps 2–4 forever.
-
-With the speed that the average machine can calculate prime numbers, it should 
-be several decades before processor time becomes an issue.
+You can see it here: [http://primes.fardogllc.com](http://primes.fardogllc.com).
 
 
 The MIT License (MIT)
