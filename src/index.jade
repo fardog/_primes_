@@ -1,0 +1,32 @@
+doctype 5
+html(lang="en")
+  head
+    title Every Prime
+
+    link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,500', rel='stylesheet', type='text/css')
+    each file in css
+      link(rel="stylesheet", href=file)
+  body
+    .row
+      .one.columns
+        h1
+          a(href="http://twitter.com/_primes_/", target="_blank") Every Prime
+        .button
+          a.next(data-bind="attr: { href: '#!/start/' + lastPrime()}")
+            span Next
+
+      .eleven.columns
+        script(type="text/html", id="prime-number").
+          <span class="prime" data-bind="text: val"></span><span class="comma" data-bind="if: ($index() < $parent.primeNumbers().length - 1)">,</span><span class="ellipsis" data-bind="if: ($index() === $parent.primeNumbers().length -1)"><a data-bind="attr: { href: '#!/start/' + $parent.lastPrime()}">&hellip;</a></span>
+
+        div.primes
+          span(data-bind="template: { name: 'prime-number', foreach: primeNumbers }")
+    .row
+      .twelve.columns
+        footer
+          &copy; 2013 
+          a(href="http://fardogllc.com/", target="_blank") Far Dog LLC
+
+          
+    each file in js
+      script(type="text/javascript", src=file)

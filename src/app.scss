@@ -1,0 +1,177 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+$logo-size: 32px;
+$logo-margin: 0.25em;
+$dark-pink: rgb(178, 59, 144); 
+$light-pink: rgb(195, 115, 176);
+$text-color: rgb(66, 66, 66);
+
+@media only screen and (min-width: 768px) {
+	body {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	body {
+		width: 98%;
+	}
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+	body {
+		width: 90%;
+	}
+}
+
+body {
+	margin-left: auto; margin-right: auto;
+
+	.row {
+		clear: both;
+	}
+
+	.columns {
+		float: left;
+		margin: 0;
+		padding: 0;
+
+		&.one {
+			width: 8.333333%;
+		}
+		&.two {
+			width: 16.666666%;
+		}
+		&.six {
+			width: 50%;
+		}
+		&.ten {
+			width: 83.333333%;
+		}
+		&.eleven {
+			width: 91.666666%;
+		}
+		&.twelve {
+			width: 100%;
+		}
+
+		&:last-child {
+			float: right;
+		}
+	}
+
+	a.home {
+		span { display: none; }
+		&:after {
+			content: '#';
+		}
+	}
+
+
+	h1{
+		text-indent: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		width: $logo-size; height: $logo-size;
+		position: relative;
+		margin: 0 $logo-margin $logo-margin 0;
+		-webkit-border-radius: 50em;
+		-moz-border-radius: 50em;
+		border-radius: 50em;
+
+		a {
+			background: url(../img/primes.png) top left no-repeat;
+			background-size: $logo-size $logo-size;
+			position: absolute;
+			top: 0; left: 0;
+			width: $logo-size; height: $logo-size;
+			margin: 0;
+			padding: 0;
+
+			&:hover {
+				background: url(../img/twitter.png) top left no-repeat;
+				background-size: $logo-size $logo-size;
+				background-color: $dark-pink;
+			}
+		}
+	}
+	.button {
+		width: $logo-size; height: $logo-size;
+		position: relative;
+		margin: 0 $logo-margin $logo-margin 0;
+		padding: 0;
+		-webkit-border-radius: 50em;
+		-moz-border-radius: 50em;
+		border-radius: 50em;
+
+		&:hover {
+			background-color: $dark-pink;
+		}
+
+		a {
+			position: absolute;
+			top: 0; left: 0;
+			width: $logo-size; height: $logo-size;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			line-height: $logo-size;
+			font-size: $logo-size;
+
+			&:hover {
+				color: #fff;
+			}
+
+			&.next {
+				span { display: none; }
+
+				&:hover {
+					font-size: 8px;
+					text-transform: uppercase;
+				}
+
+				&:after {
+					content: '\00BB';
+				}
+
+				&:hover:after {
+					content: 'more';
+				}
+			}
+		}
+	}
+
+	a {
+		color: $dark-pink;
+	}
+
+	.primes {
+		font-size: $logo-size;
+		line-height: $logo-size;
+		color: $text-color;
+		text-align: justify;
+	}
+
+	$g: 250;
+	footer {
+		margin-top: 1em;
+		padding-top: 0.5em;
+		border-top: 1px solid rgb($g, $g, $g);
+		color: rgb($g, $g, $g);
+		text-align: right;
+
+		a {
+			color: rgb($g, $g, $g);
+			&:hover {
+				color: rgb($g - 20, $g - 20, $g - 20);
+			}
+		}
+	}
+}
