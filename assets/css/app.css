@@ -1,0 +1,120 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif; }
+
+a {
+  text-decoration: none; }
+
+@media only screen and (min-width: 768px) {
+  body {
+    width: 80%; } }
+@media only screen and (max-width: 767px) {
+  body {
+    width: 98%; } }
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  body {
+    width: 90%; } }
+body {
+  margin-left: auto;
+  margin-right: auto; }
+  body .row {
+    clear: both; }
+  body .columns {
+    float: left;
+    margin: 0;
+    padding: 0; }
+    body .columns.one {
+      width: 8.333333%; }
+    body .columns.two {
+      width: 16.666666%; }
+    body .columns.six {
+      width: 50%; }
+    body .columns.ten {
+      width: 83.333333%; }
+    body .columns.eleven {
+      width: 91.666666%; }
+    body .columns.twelve {
+      width: 100%; }
+    body .columns:last-child {
+      float: right; }
+  body a.home span {
+    display: none; }
+  body a.home:after {
+    content: '#'; }
+  body h1 {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    margin: 0 0.25em 0.25em 0;
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em; }
+    body h1 a {
+      background: url(../img/primes.png) top left no-repeat;
+      background-size: 32px 32px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      margin: 0;
+      padding: 0; }
+      body h1 a:hover {
+        background: url(../img/twitter.png) top left no-repeat;
+        background-size: 32px 32px;
+        background-color: #b23b90; }
+  body .button {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    margin: 0 0.25em 0.25em 0;
+    padding: 0;
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em; }
+    body .button:hover {
+      background-color: #b23b90; }
+    body .button a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 32px;
+      height: 32px;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      line-height: 32px;
+      font-size: 32px; }
+      body .button a:hover {
+        color: #fff; }
+      body .button a.next span {
+        display: none; }
+      body .button a.next:hover {
+        font-size: 8px;
+        text-transform: uppercase; }
+      body .button a.next:after {
+        content: '\00BB'; }
+      body .button a.next:hover:after {
+        content: 'more'; }
+  body a {
+    color: #b23b90; }
+  body .primes {
+    font-size: 32px;
+    line-height: 32px;
+    color: #424242;
+    text-align: justify; }
+  body footer {
+    margin-top: 1em;
+    padding-top: 0.5em;
+    border-top: 1px solid #fafafa;
+    color: #fafafa;
+    text-align: right; }
+    body footer a {
+      color: #fafafa; }
+      body footer a:hover {
+        color: #e6e6e6; }
