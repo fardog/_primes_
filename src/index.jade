@@ -13,14 +13,17 @@ html(lang="en")
     each file in css
       link(rel="stylesheet", href=file)
   body
-    .row
+    nav.row
       .large-1.small-2.columns
         h1
           a(href="http://twitter.com/_primes_/", target="_blank") Every Prime
         .button
+          a.home(href="#!/")
+            span Home
+        .button
           a.next(data-bind="attr: { href: '#!/start/' + lastPrime()}")
-            span Next
-
+            span More 
+        
       .large-11.small-10.columns
         script(type="text/html", id="prime-number").
           <span class="prime" data-bind="text: val"></span><span class="comma" data-bind="if: ($index() < $parent.primeNumbers().length - 1)">,</span><span class="ellipsis" data-bind="if: ($index() === $parent.primeNumbers().length -1)"><a data-bind="attr: { href: '#!/start/' + $parent.lastPrime()}">&hellip;</a></span>

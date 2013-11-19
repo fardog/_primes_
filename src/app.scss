@@ -189,8 +189,8 @@ body {
 		border-radius: 50em;
 
 		a {
-			background: url(../img/primes.png) top left no-repeat;
-			background-size: $logo-size $logo-size;
+			background: url(../img/sprite.png) top left no-repeat;
+			background-size: $logo-size $logo-size * 2;
 			position: absolute;
 			top: 0; left: 0;
 			width: $logo-size; height: $logo-size;
@@ -198,8 +198,8 @@ body {
 			padding: 0;
 
 			&:hover {
-				background: url(../img/twitter.png) top left no-repeat;
-				background-size: $logo-size $logo-size;
+				background: url(../img/sprite.png) bottom left no-repeat;
+				background-size: $logo-size $logo-size * 2;
 				background-color: $dark-pink;
 			}
 		}
@@ -229,14 +229,17 @@ body {
 
 			&:hover {
 				color: #fff;
+				font-size: 8px;
+				text-transform: uppercase;
 			}
 
+			span { display: none; }
+
 			&.next {
-				span { display: none; }
+				line-height: $logo-size * 0.8;
 
 				&:hover {
-					font-size: 8px;
-					text-transform: uppercase;
+					line-height: $logo-size;
 				}
 
 				&:after {
@@ -247,11 +250,31 @@ body {
 					content: 'more';
 				}
 			}
+
+			&.home {
+				font-size: $logo-size * 0.8;
+
+				&:hover {
+					font-size: 8px;
+				}
+
+				&:after {
+					content: "#";
+				}
+
+				&:hover:after {
+					content: 'home';
+				}
+			}
 		}
 	}
 
 	a {
 		color: $dark-pink;
+
+		&:hover {
+			color: $light-pink;
+		}
 	}
 
 	.primes {
