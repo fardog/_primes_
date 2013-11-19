@@ -67,7 +67,7 @@ body {
       body h1 a:hover {
         background: url(../img/twitter.png) top left no-repeat;
         background-size: 32px 32px;
-        background-color: #b23b90; }
+        background-color: #c057a0; }
   body .button {
     width: 32px;
     height: 32px;
@@ -78,7 +78,7 @@ body {
     -moz-border-radius: 50em;
     border-radius: 50em; }
     body .button:hover {
-      background-color: #b23b90; }
+      background-color: #c057a0; }
     body .button a {
       position: absolute;
       top: 0;
@@ -102,7 +102,7 @@ body {
       body .button a.next:hover:after {
         content: 'more'; }
   body a {
-    color: #b23b90; }
+    color: #c057a0; }
   body .primes {
     font-size: 32px;
     line-height: 32px;
