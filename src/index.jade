@@ -2,30 +2,38 @@ doctype 5
 html(lang="en")
   head
     title Every Prime
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="Every prime number, viewable in your browser.")
+    meta(name="author", content="Far Dog LLC")
+    meta(name="keywords", content="primes, prime numbers, prime number calculator, math, mathematics")
+    meta(name="copyright", content="Far Dog LLC, Copyright (c) 2013.")
 
     link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,500', rel='stylesheet', type='text/css')
     each file in css
       link(rel="stylesheet", href=file)
   body
     .row
-      .one.columns
+      .large-1.small-2.columns
         h1
           a(href="http://twitter.com/_primes_/", target="_blank") Every Prime
         .button
           a.next(data-bind="attr: { href: '#!/start/' + lastPrime()}")
             span Next
 
-      .eleven.columns
+      .large-11.small-10.columns
         script(type="text/html", id="prime-number").
           <span class="prime" data-bind="text: val"></span><span class="comma" data-bind="if: ($index() < $parent.primeNumbers().length - 1)">,</span><span class="ellipsis" data-bind="if: ($index() === $parent.primeNumbers().length -1)"><a data-bind="attr: { href: '#!/start/' + $parent.lastPrime()}">&hellip;</a></span>
 
         div.primes
           span(data-bind="template: { name: 'prime-number', foreach: primeNumbers }")
     .row
-      .twelve.columns
+      .large-8.small-8.columns
         footer
           &copy; 2013 
           a(href="http://fardogllc.com/", target="_blank") Far Dog LLC
+          | , 
+          a(href="https://github.com/fardog/_primes_/tree/every-prime", target="_blank") Open Source
 
           
     each file in js

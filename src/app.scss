@@ -16,18 +16,138 @@ $text-color: rgb(66, 66, 66);
 @media only screen and (min-width: 768px) {
 	body {
 		width: 80%;
+
+		.columns {
+
+			&.large-1 {
+				width: 8.333333%;
+			}
+			&.large-2 {
+				width: 16.666666%;
+			}
+			&.large-3 {
+				width: 24.999999%;
+			}
+			&.large-4 {
+				width: 33.333333%;
+			}
+			&.large-5 {
+				width: 41.666666%;
+			}
+			&.large-6 {
+				width: 50%;
+			}
+			&.large-7 {
+				width: 58.333333%;
+			}
+			&.large-8 {
+				width: 66.666666%;
+			}
+			&.large-9 {
+				width: 74.999999%;
+			}
+			&.large-10 {
+				width: 83.333333%;
+			}
+			&.large-11 {
+				width: 91.666666%;
+			}
+			&.large-12 {
+				width: 100%;
+			}
+		}
 	}
 }
 
 @media only screen and (max-width: 767px) {
 	body {
-		width: 98%;
+		width: 90%;
+
+		.columns {
+
+			&.small-1 {
+				width: 8.333333%;
+			}
+			&.small-2 {
+				width: 16.666666%;
+			}
+			&.small-3 {
+				width: 24.999999%;
+			}
+			&.small-4 {
+				width: 33.333333%;
+			}
+			&.small-5 {
+				width: 41.666666%;
+			}
+			&.small-6 {
+				width: 50%;
+			}
+			&.small-7 {
+				width: 58.333333%;
+			}
+			&.small-8 {
+				width: 66.666666%;
+			}
+			&.small-9 {
+				width: 74.999999%;
+			}
+			&.small-10 {
+				width: 83.333333%;
+			}
+			&.small-11 {
+				width: 91.666666%;
+			}
+			&.small-12 {
+				width: 100%;
+			}
+		}
 	}
 }
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
 	body {
-		width: 90%;
+		width: 98%;
+
+		.columns {
+
+			&.small-1 {
+				width: 8.333333%;
+			}
+			&.small-2 {
+				width: 16.666666%;
+			}
+			&.small-3 {
+				width: 24.999999%;
+			}
+			&.small-4 {
+				width: 33.333333%;
+			}
+			&.small-5 {
+				width: 41.666666%;
+			}
+			&.small-6 {
+				width: 50%;
+			}
+			&.small-7 {
+				width: 58.333333%;
+			}
+			&.small-8 {
+				width: 66.666666%;
+			}
+			&.small-9 {
+				width: 74.999999%;
+			}
+			&.small-10 {
+				width: 83.333333%;
+			}
+			&.small-11 {
+				width: 91.666666%;
+			}
+			&.small-12 {
+				width: 100%;
+			}
+		}
 	}
 }
 
@@ -43,25 +163,7 @@ body {
 		margin: 0;
 		padding: 0;
 
-		&.one {
-			width: 8.333333%;
-		}
-		&.two {
-			width: 16.666666%;
-		}
-		&.six {
-			width: 50%;
-		}
-		&.ten {
-			width: 83.333333%;
-		}
-		&.eleven {
-			width: 91.666666%;
-		}
-		&.twelve {
-			width: 100%;
-		}
-
+		
 		&:last-child {
 			float: right;
 		}
@@ -159,13 +261,14 @@ body {
 		text-align: justify;
 	}
 
-	$g: 250;
+	$g: 230;
 	footer {
 		margin-top: 1em;
+		margin-bottom: 1em;
 		padding-top: 0.5em;
-		border-top: 1px solid rgb($g, $g, $g);
 		color: rgb($g, $g, $g);
 		text-align: right;
+		font-size: 0.75em;
 
 		a {
 			color: rgb($g, $g, $g);
