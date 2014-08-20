@@ -127,7 +127,7 @@ scheduleNext = (data) ->
     date = new Date data.created_at
     date.addMinutes(minutes_between_posts)
   else
-    die "Couldn not get the last posting date from Twitter."
+    die "Could not get the last posting date from Twitter."
 
   # Check if it's been enough time since last post, or calculate when to post
   if !(Date.now() > date)
