@@ -67,6 +67,9 @@ Date.prototype.addMinutes = (m) ->
 #
 # Returns true if the number is prime, false otherwise
 isPrime = (n) ->
+  if n == 2
+    return true
+
   max = Math.sqrt n
 
   for i in [2..max]
