@@ -2,7 +2,7 @@ _primes_
 ========
 
 _primes_ is a prime number calculator that uses twitter as it's storage backend;
-you can follow [@_primes_](https://twitter.com/_primes_) to see the magic. It 
+you can follow [@\_primes\_](https://twitter.com/_primes_) to see the magic. It 
 works as follows:
 
 1. Start up
@@ -18,7 +18,7 @@ be several decades before processor time becomes an issue.
 The MIT License (MIT)
 ---------------------
 
-Copyright (c) 2013 Nathan Wittstock
+Copyright (c) 2014 Nathan Wittstock
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
