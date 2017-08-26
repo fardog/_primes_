@@ -1,7 +1,7 @@
 _primes_
 ========
 
-_primes_ is a prime number calculator that uses twitter as it's storage backend;
+_primes_ is a prime number calculator that uses twitter as its storage backend;
 you can follow [@\_primes\_](https://twitter.com/_primes_) to see the magic. It 
 works as follows:
 
