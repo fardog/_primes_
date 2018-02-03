@@ -1,6 +1,9 @@
 _primes_
 ========
 
+**Note:** This code is deprecated; it's been replaced by [primebot][] which is
+more maintainable, and works on multiple social networks.
+
 _primes_ is a prime number calculator that uses twitter as its storage backend;
 you can follow [@\_primes\_](https://twitter.com/_primes_) to see the magic. It 
 works as follows:
@@ -36,3 +39,5 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[primebot]: https://github.com/fardog/primebot
